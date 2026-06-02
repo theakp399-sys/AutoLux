@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux Premium Cars</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#ff3c00;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff3c00;
+}
+
+.header-icons{
+    display:flex;
+    align-items:center;
+}
+
+.header-icons i{
+    margin-left:20px;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.header-icons i:hover{
+    color:#ff3c00;
+}
+
+.cart-icon{
+    position:relative;
+}
+
+#cart-count{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    width:20px;
+    height:20px;
+    background:#ff3c00;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+}
+
+.hero-text{
+    max-width:700px;
+}
+
+.hero-text h1{
+    font-size:75px;
+    line-height:1.1;
+}
+
+.hero-text p{
+    margin:25px 0;
+    color:#ddd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#ff3c00;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:0.4s;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#ff5722;
+    transform:translateY(-5px);
+}
+
+/* SEARCH */
+
+.search-box{
+    padding:40px 8%;
+    background:#111;
+}
+
+.search-box input{
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#1b1b1b;
+    color:white;
+    font-size:16px;
+}
+
+/* SECTION */
+
+section{
+    padding:100px 8%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h2{
+    font-size:45px;
+}
+
+/* CARS */
+
+.car-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.car-card{
+    background:#1b1b1b;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.car-card:hover{
+    transform:translateY(-10px);
+}
+
+.car-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.car-content{
+    padding:25px;
+}
+
+.car-content h3{
+    font-size:28px;
+}
+
+.car-content p{
+    margin:15px 0;
+    color:#bbb;
+    line-height:1.7;
+}
+
+.price{
+    font-size:30px;
+    color:#ff3c00;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.features{
+    display:flex;
+    justify-content:space-between;
+    color:#ccc;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+}
+
+.about-text h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#ccc;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service-box{
+    background:#1b1b1b;
+    padding:40px 30px;
+    text-align:center;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.service-box:hover{
+    background:#ff3c00;
+    transform:translateY(-10px);
+}
+
+.service-box i{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.service-box p{
+    margin-top:10px;
+    color:#ddd;
+}
+
+/* CART */
+
+.cart{
+    position:fixed;
+    top:0;
+    right:-400px;
+    width:350px;
+    height:100%;
+    background:#1b1b1b;
+    padding:20px;
+    z-index:2000;
+    transition:0.4s;
+    overflow:auto;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    border-bottom:1px solid #333;
+    padding-bottom:10px;
+}
+
+.total{
+    font-size:25px;
+    margin-top:20px;
+    color:#ff3c00;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#141414;
+    border-radius:25px;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:50px;
+}
+
+.contact-info p{
+    margin:20px 0;
+    color:#ccc;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+form input,
+form textarea{
+    padding:16px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.socials{
+    margin:20px 0;
+}
+
+.socials i{
+    margin:0 12px;
+    font-size:24px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.socials i:hover{
+    color:#ff3c00;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+
+    .hero-text h1{
+        font-size:50px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero-text h1{
+        font-size:38px;
+    }
+
+    nav a{
+        margin:0 10px;
+        font-size:14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">AutoLux</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-icons">
+
+        <i class="fas fa-search"></i>
+
+        <i class="fas fa-user"></i>
+
+        <div class="cart-icon"
+        onclick="toggleCart()">
+
+            <i class="fas fa-shopping-cart"></i>
+
+            <span id="cart-count">0</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>Premium Luxury Cars</h1>
+
+        <p>
+            Discover world-class sports and luxury cars
+            with premium performance and elegant design.
+        </p>
+
+        <a href="#cars" class="btn">
+            Explore Cars
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+    <input type="text"
+    id="searchInput"
+    placeholder="Search Cars...">
+
+</div>
+
+<!-- CARS -->
+
+<section id="cars">
+
+    <div class="title">
+        <h2>Featured Cars</h2>
+    </div>
+
+    <div class="car-container">
+
+        <!-- CAR 1 -->
+
+        <div class="car-card">
+
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="car-content">
+
+                <h3>BMW M4</h3>
+
+                <p>
+                    Premium luxury sports car with
+                    modern technology and strong engine.
+                </p>
+
+                <div class="price">$85,000</div>
+
+                <div class="features">
+
+                    <span>
+                        <i class="fas fa-gas-pump"></i>
+                        Petrol
+                    </span>
+
+                    <span>
+                        <i class="fas fa-cogs"></i>
+                        Auto
+                    </span>
+
+                    <span>2026</span>
+
+                </div>
+
+                <button class="btn"
+                onclick="addToCart(
+                'BMW M4',
+                85000
+                )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CAR 2 -->
+
+        <div class="car-card">
+
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="car-content">
+
+                <h3>Ford Mustang</h3>
+
+                <p>
+                    Aggressive muscle car with premium
+                    performance and iconic design.
+                </p>
+
+                <div class="price">$72,000</div>
+
+                <div class="features">
+
+                    <span>
+                        <i class="fas fa-gas-pump"></i>
+                        Petrol
+                    </span>
+
+                    <span>
+                        <i class="fas fa-cogs"></i>
+                        Auto
+                    </span>
+
+                    <span>2025</span>
+
+                </div>
+
+                <button class="btn"
+                onclick="addToCart(
+                'Ford Mustang',
+                72000
+                )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CAR 3 -->
+
+        <div class="car-card">
+
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="car-content">
+
+                <h3>Audi R8</h3>
+
+                <p>
+                    Elegant supercar with luxury
+                    interior and powerful engine.
+                </p>
+
+                <div class="price">$120,000</div>
+
+                <div class="features">
+
+                    <span>
+                        <i class="fas fa-gas-pump"></i>
+                        Petrol
+                    </span>
+
+                    <span>
+                        <i class="fas fa-cogs"></i>
+                        Auto
+                    </span>
+
+                    <span>2026</span>
+
+                </div>
+
+                <button class="btn"
+                onclick="addToCart(
+                'Audi R8',
+                120000
+                )">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="about-text">
+
+            <h2>About AutoLux</h2>
+
+            <p>
+                AutoLux provides premium quality luxury cars
+                with professional service and affordable pricing.
+            </p>
+
+            <a href="#" class="btn">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="title">
+        <h2>Our Services</h2>
+    </div>
+
+    <div class="services">
+
+        <div class="service-box">
+
+            <i class="fas fa-car"></i>
+
+            <h3>Luxury Cars</h3>
+
+            <p>
+                Best premium car collection.
+            </p>
+
+        </div>
+
+        <div class="service-box">
+
+            <i class="fas fa-tools"></i>
+
+            <h3>Repair</h3>
+
+            <p>
+                Professional repair service.
+            </p>
+
+        </div>
+
+        <div class="service-box">
+
+            <i class="fas fa-shield-alt"></i>
+
+            <h3>Insurance</h3>
+
+            <p>
+                Secure insurance support.
+            </p>
+
+        </div>
+
+        <div class="service-box">
+
+            <i class="fas fa-headset"></i>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                Always available support.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h2>Contact Us</h2>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    autolux@gmail.com
+                </p>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    +855 12 345 678
+                </p>
+
+                <p>
+                    <i class="fas fa-location-dot"></i>
+                    Phnom Penh, Cambodia
+                </p>
+
+            </div>
+
+            <form>
+
+                <input type="text"
+                placeholder="Your Name">
+
+                <input type="email"
+                placeholder="Your Email">
+
+                <textarea rows="6"
+                placeholder="Your Message"></textarea>
+
+                <button class="btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+    <h2>Shopping Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <div class="total"
+    id="total">
+        Total: $0
+    </div>
+
+    <button class="btn"
+    style="width:100%;margin-top:20px;">
+        Checkout
+    </button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>AutoLux</h2>
+
+    <div class="socials">
+
+        <i class="fab fa-facebook"></i>
+
+        <i class="fab fa-instagram"></i>
+
+        <i class="fab fa-twitter"></i>
+
+        <i class="fab fa-youtube"></i>
+
+    </div>
+
+    <p>
+        © 2026 AutoLux Premium Cars
+    </p>
+
+</footer>
+
+<script>
+
+/* SEARCH */
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup",()=>{
+
+let filter =
+searchInput.value.toLowerCase();
+
+let cards =
+document.querySelectorAll(".car-card");
+
+cards.forEach(card=>{
+
+let title =
+card.querySelector("h3")
+.innerText.toLowerCase();
+
+if(title.includes(filter)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+});
+
+/* CART */
+
+let cart = [];
+
+function addToCart(name,price){
+
+cart.push({name,price});
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems =
+document.getElementById("cart-items");
+
+const total =
+document.getElementById("total");
+
+const count =
+document.getElementById("cart-count");
+
+cartItems.innerHTML = "";
+
+let totalPrice = 0;
+
+cart.forEach(item=>{
+
+totalPrice += item.price;
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<p>${item.name}</p>
+
+<p>$${item.price}</p>
+
+</div>
+
+`;
+
+});
+
+total.innerHTML =
+`Total: $${totalPrice}`;
+
+count.innerHTML =
+cart.length;
+
+}
+
+/* TOGGLE CART */
+
+function toggleCart(){
+
+document.getElementById("cart")
+.classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>
